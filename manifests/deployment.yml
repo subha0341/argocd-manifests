@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: flask-container
-          image: ${DOCKERHUB_USERNAME}/${CIRCLE_PROJECT_REPONAME}:${CIRCLE_SHA1}
+          image: coder336/flask-blog-app:4b4df18bb4cb04f84b41282c683c7102661c55f0
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 5000
