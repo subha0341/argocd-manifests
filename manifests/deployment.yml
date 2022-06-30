@@ -23,7 +23,7 @@ spec:
       spec:
         containers:
           - name: flask-container
-            image: coder336/flask-blog-app:3ffc26889e460eb7e72c0c9050d709f49d857bce
+            image: coder336/flask-blog-app:b65c474547a174acd033a27554b0ecd520892c92
             imagePullPolicy: IfNotPresent
             ports:
               - containerPort: 5000
