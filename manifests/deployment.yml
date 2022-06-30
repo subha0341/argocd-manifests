@@ -1,30 +1,25 @@
 apiVersion: apps/v1
-
 kind: Deployment
-
 metadata:
   name: flask-deployment
   # namespace: blog-app
   labels:
     app: flask-deployment
-
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: flask-pod
-
   template:
-      metadata:
-        name: flask-pod
-        labels:
-          app: flask-pod
-
-      spec:
-        containers:
-          - name: flask-container
-            image: coder336/flask-blog-app:d704d548831d09de4aeff187f7179571cd5ea570
-            imagePullPolicy: IfNotPresent
-            ports:
-              - containerPort: 5000
-                # protocol: TCP
+    metadata:
+      name: flask-pod
+      labels:
+        app: flask-pod
+    spec:
+      containers:
+        - name: flask-container
+          image: ${DOCKERHUB_USERNAME}/${CIRCLE_PROJECT_REPONAME}:${CIRCLE_SHA1}
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5000
+              # protocol: TCP
