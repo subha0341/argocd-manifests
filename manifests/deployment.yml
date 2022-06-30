@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+  name: flask-deployment
+  # namespace: blog-app
+  labels:
+    app: flask-deployment
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flask-pod
+
+  template:
+      metadata:
+        name: flask-pod
+        labels:
+          app: flask-pod
+
+      spec:
+        containers:
+          - name: flask-container
+            image: coder336/flask-blog-app:7867073282d7c31efccd1fe017a99afbea19b4ad
+            imagePullPolicy: IfNotPresent
+            ports:
+              - containerPort: 5000
+                # protocol: TCP
